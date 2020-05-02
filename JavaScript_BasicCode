@@ -1,0 +1,500 @@
+/*Author: Sword Lord of the Lonely Peak
+ *Date: 2020/05/29
+ */
+
+/*ECMAScript specification. 
+ *Javascript is an intepreted language. 
+ *Java is a compiled language. Thus Java and Javascript are not the same. 
+ *Now for variables:
+ *=> const means that the variable value cannot be reassign. 
+ *=> Only const if you know that you will need not need to
+ *   reassign the variable. 
+ */
+
+/*Variables*/
+
+console.log('Hello World!');
+console.log('Good Morning!'); 
+let word1 = 'Dylan';
+let word2 = 'LOL';
+let num1 = 2; 
+let num2 = 3; 
+let isCool = true;
+let isCool2 = false; 
+const fullName = `${num1 + num2} ${word2}`; 
+let example = 'Hello\n' + 'World';
+let example2 = `${word1} ${word2}`;
+console.log(example2); 
+console.log(example); 
+let name = 'DEATHLY'; 
+console.log(name); 
+let firstName = 'MOSH', secondName = 'FALLEN', thirdName = 'JIEN'; 
+let example3 = `${firstName} ${secondName} ${thirdName}`;
+let exNum = 20; 
+let age = 30; 
+let x = null; 
+const x1 = null; 
+const x2 = 4.5; 
+const y = undefined;
+let z; 
+console.log(typeof firstName); //testing type!
+console.log(age); 
+console.log(example3); 
+console.log(isCool); 
+
+/*concatenation*/
+
+console.log("My name is " + firstName + " and my age is " + age);
+console.log(`My name is ${firstName} ${secondName} and my age is ${age}`); 
+let hello = `My name is ${firstName} ${secondName} and my age is ${age}`;
+const s = 'technology, computers, it, code';
+console.log(hello);
+console.log(hello.length); 
+console.log(hello.toUpperCase()); 
+console.log(hello.toLowerCase()); 
+console.log(hello.substring(0,23).toUpperCase());
+console.log(hello.split(''));
+console.log(s.split(', ')); 
+
+/*Arrays - variables that hold multiple values*/
+
+const numbers = new Array(1,2,3,4,5); 
+const fruits = ['apples', 'oranges', 'pears', true, 10];
+console.log(fruits); 
+console.log(numbers); 
+fruits[5] = 'grapes';
+fruits.push('mangos'); //adds mangos to the end. 
+fruits.unshift('strawberries'); 
+fruits.pop(); 
+console.log(fruits); 
+console.log(fruits[0]); 
+console.log(Array.isArray(fruits)); 
+console.log(fruits.indexOf('oranges')); 
+
+/*Object literals*/
+
+const person = {
+    firstName1: 'John',
+    lastName1: 'Doe',
+    age: 30,
+    hobbies: ['music', 'movies', 'sports'],
+    address: {
+        street:'50 main st',
+        city: 'Boston',
+        state: 'MA'
+    }
+}
+
+console.log(person.firstName1, person.lastName1); 
+console.log(person.hobbies[1]);
+console.log(person.address.city); 
+
+const { firstName1, lastName1, address: {city} } = person; 
+console.log(firstName1, city);
+person.email = 'john@gmail.com'; // adding properties. 
+console.log(person); 
+
+/*Array of objects*/ 
+
+const todos = [{
+    id: 1,
+    text: 'Take out trash',
+    isCompleted: true
+}, 
+{
+    id: 2,
+    text: 'Meeting with Boss',
+    isCompleted: true
+}, 
+{
+    id: 3,
+    text: 'Dentist appointment',
+    isCompleted: false
+}]; 
+console.log(todos); 
+console.log(todos[1].text); //Gets the text found in index 1. 
+console.log(todos[2].text); //Gets the text found in index 2. 
+
+//This is how to send data to a server!
+const todoJSON = JSON.stringify(todos); //This is to make array to JSON format. 
+console.log(todoJSON); 
+
+/*Loop*/ 
+
+for(let i = 0; i <= 10; i++){
+    console.log(`For LOOP number: ${i}`); 
+}
+
+console.log('\n'); 
+let i = 0; 
+while(i<10)
+{
+    console.log(`For LOOP number: ${i}`); 
+    i++; 
+}
+
+console.log('\n'); 
+for(let j = 0; j < todos.length; j++)
+{
+    console.log(todos[j].text); 
+}
+
+console.log('\n'); 
+for(let todo of todos)
+{
+    console.log(todo.text); 
+}
+
+/*forEach, map, filter*/ 
+
+console.log('\n');
+todos.forEach(function(todo){
+    console.log(todo.text); 
+}); 
+
+console.log('\n');
+const todoText = todos.map(function(todo){
+    return todo.text; 
+});
+
+console.log(todoText); 
+
+console.log('\n');
+const todoCompleted = todos.filter(function(todo){
+    return todo.isCompleted == true; 
+}).map(function(todo){
+    return todo.text;
+}); 
+
+console.log(todoCompleted); 
+
+/*Conditions*/
+
+const x3 = 1;
+const y3 = 21; 
+
+if(x3 === 10 && y3 > 10) // === matches the datatypes and the value. 
+{
+    console.log('x is 10'); 
+}
+else if(x3 > 10)
+{
+    console.log('x is greater than 10');
+}
+else
+{
+    console.log('x is less than 10'); 
+}
+
+
+if(x3 > 5 || y3 > 10) // === matches the datatypes and the value. 
+{
+    console.log('y greater 10 and x is greater than 5'); 
+}
+
+/*Ternary Operator*/
+
+let color = x > 10 ? 'red' : 'blue';
+
+console.log(color); 
+
+(color === 'red') ? console.log('The color is red') : console.log('The color is not red'); 
+
+/*Switches*/ 
+
+color = 'green'; 
+switch(color)
+{
+    case 'red':
+        console.log('The color is red!');
+        break;
+    case 'blue':
+        console.log('The color is blue!');
+        break; 
+    default:
+        console.log('The color is not red or blue!'); 
+        break; 
+}
+
+/*Functions*/
+
+function addNums(num1 = 1, num2 = 1){
+    return (num1 + num2);
+}
+
+console.log(addNums(5, 45)); 
+
+function addNums2(num1, num2){
+    console.log(num1 + num2);
+}
+
+addNums2(5, 45); 
+
+const addNums3 = (num1 = 1, num2 = 1) => { //Functions using arrow function (introducde in ES6)
+    return num1 + num2; 
+}
+
+console.log(addNums3(5,45)); 
+
+const addNums4 = (num1 = 1, num2 = 1) => num1 + num2; 
+
+console.log(addNums4(5,45)); 
+
+todos.forEach(todo => console.log('Hello')); 
+
+/*Object Oriented Programming*/ 
+
+//Constructor Function
+//function Person(firstName, lastName, dob) {
+    //this.firstName = firstName; 
+    //this.lastName = lastName; 
+    //this.dob = new Date(dob); 
+    //this.getBirthYear = function(){
+    //    return this.dob.getFullYear(); 
+    //}
+    //this.getFullName = function(){
+    //    return `${this.firstName} ${this.lastName}`; 
+    //}
+//}
+
+//Person.prototype.getBirthYear = function() { //Prototype!
+    //return this.dob.getFullYear(); 
+//}
+
+//Person.prototype.getFullName = function() {
+    //return `${this.firstName} ${this.lastName}`;
+//}
+
+class Person {
+    constructor(firstName, lastName, dob)
+    {
+        this.firstName = firstName; 
+        this.lastName = lastName; 
+        this.dob = new Date(dob); 
+    }
+    getBirthYear(){
+        return this.dob.getFullYear();
+    }
+    getFullName(){
+        return `${this.firstName} ${this.lastName}`; 
+    }
+}
+
+//Instantiate Object 
+const person1 = new Person('Nick', 'Doe', '4-3-1980'); 
+const person2 = new Person('Mary', 'Smith', '3-6-1970'); 
+console.log(person1.firstName, person1.lastName, 'is date of birth is', person1.dob); 
+console.log(person2.firstName, person2.lastName, 'is date of birth is', person2.dob); 
+console.log(person1);
+console.log(person1.getFullName());
+console.log(person1.getBirthYear());
+console.log(person2);
+console.log(person2.getFullName());
+console.log(person2.getBirthYear()); 
+
+/* % => Remainder*/ 
+
+let remainder = 11 % 3;
+if(remainder % 2 == 0)
+    console.log('Even');
+else if(remainder % 2 == 1)
+    console.log('Odd'); 
+else
+    console.log('Number is neither odd or even!'); 
+
+/*Escape Sequences in String*/
+
+/*****
+ * \' single quote
+ * \" double quote
+ * \\ backslash
+ * \n newline
+ * \r carriage return
+ * \t tab
+ * \b backspace
+ * \f form feed
+ ****/
+
+var myString = '\'\"FirstLine\" \n \\ is shown \t tab \b backspace \f form feed\''; 
+console.log(myString); 
+
+/*Strings*/
+
+var firstNameString = 'Ava';
+var firstLetter = firstNameString[0];
+console.log(firstLetter + ` is the first letter of the name ${firstNameString}!`);
+var lastNameString = 'Herrman';
+var lastNameIsLastLetter = lastNameString[lastNameString.length - 1]; // -1 is to get correct index of the last letter!
+console.log(`The last letter of the name ${lastNameString} is ${lastNameIsLastLetter}!`);
+
+/*Small Game*/ 
+
+function wordBlanks(myNoun, myAdjective, myVerb, myAdverb)
+{
+    var result = "";
+    result += "The" + " " + myAdjective + " " + myNoun + " " + myVerb + " to the store " + myAdverb + "."; 
+    return result; 
+}
+
+console.log(wordBlanks("dog", "big", "ran", "quickly"));
+
+/*Arrays*/ 
+
+var myArray2 = [
+    {
+        id1: 12,
+        isCompletedYet: true,
+        isDeathYet: false,
+        Name: "Gustave Rederick"
+    },
+    {
+        id1: 13,
+        isCompletedYet: true,
+        isDeathYet: true,
+        Name: "Gray Robbins"
+    },
+    {
+        id1: 14,
+        isCompletedYet: true,
+        isDeathYet: false,
+        Name: "June Green"
+    }
+];
+
+let myArray3 = [["Hello", "20"]];
+
+console.log(myArray2[0].Name + " status is he dead yet? " + myArray2[0].isDeathYet); 
+console.log(myArray2[1].Name + " status is he dead yet? " + myArray2[1].isDeathYet); 
+console.log(myArray2[2].Name + " status is he dead yet? " + myArray2[2].isDeathYet);
+console.log(myArray3[0][0]); 
+
+myArray3.push(["Death", "22"]); //Pushes the value at the end of the array.
+console.log(myArray3); 
+myArray3.unshift(["Strawberries", "20"]); //Pushes element to the beginning of the array.
+myArray3.pop(); //Removes last element in an array.
+console.log(myArray3); 
+
+const a1 = [1,2,3,4]
+const a2 = [1,'two', 3, null]; 
+const a3 = [
+    "What the hammer?",
+    "In what furnace was thy brain?",
+    "What the anvil? What dread grasp",
+    "Dare its deadly terrors clasp?",
+];
+
+const a4 = [
+    {name: "Ruby", hardness: 9},
+    {name: "Diamond", hardness: 10}, 
+    {name: "Topaz", hardness: 8},
+];
+console.log(a3[0]);
+console.log(a4[0].name, a4[1].name, a4[2].name); 
+console.log(a2[3]); 
+
+/*Dates*/
+
+const halloweenParty = new Date(2020, 9, 31, 19, 0); 
+console.log(halloweenParty.getFullYear());
+console.log(halloweenParty.getMonth());
+console.log(halloweenParty.getDate());
+console.log(halloweenParty.getHours());
+console.log(halloweenParty.getMinutes());
+console.log(halloweenParty.getSeconds());
+console.log(halloweenParty.getMilliseconds());
+
+/*Converting to Numbers*/ 
+
+const numStr = "33.3"
+const num = Number(numStr);
+console.log("The number is " + num + "!"); 
+
+const numConv = parseFloat("15.5 volts") //Always assume base 10!
+const numConv2 = parseInt("3a", 16); //Hexadecimal, thus parse int at base 16. 
+const numConv3 = parseInt ("16 volts", 10); //parse int at base 10.
+console.log(`Number 1 is ${numConv}!`); 
+console.log(`Number 2 is ${numConv2}!`); 
+console.log(`Number 3 is ${numConv3}!`); 
+const d = new Date();
+const ts = d.valueOf(); //value of the date in miliseconds. 
+console.log(ts); 
+
+/*Converting Boolean to 1 or 0*/
+
+const b = true; 
+const n = b ? 1 : 0; 
+console.log("The numerical value of the boolean variable b is " + n); 
+
+/*Converting to String*/ 
+
+const n2 = 33.5; 
+const s2 = n2.toString(); 
+console.log("The value of the number is " + n2 + " and its converted value is " + s2);
+
+const arr = [1,true,"Hello"];
+console.log(arr.toString()); //Converting array to string!
+
+/*Converting to Boolean*/ 
+
+const n3 = 0; 
+const b1 = !!n3; //Converting numbers to boolean! 
+const b2 = Boolean(n3); //Converting numbers to boolean! 
+
+console.log(n3);
+console.log(b1);
+console.log(b2); 
+
+/*Expressions*/ 
+
+let x4, y4; 
+x4 = 3*5; 
+if(x4 == 15)
+    x4 = y4 = 4*5 + 5*4;
+else
+    x4 = y4 = 15; 
+console.log(x4.toString()); 
+console.log(y4.toString());
+
+/****
+ * ^^Arithmetic Operators^^
+ * a+b addition (also for string concatenation)
+ * a-b subtraction 
+ * a/b division
+ * a*b multiplication
+ * a%b remainder 
+ * -a unary negation
+ * +a unary plus
+ * ++a pre-increment
+ * a++ post-increment
+ * --a pre-increment
+ * a-- post-increment
+ *****/
+
+const x5 = 5;
+const y5 = 3 - -x5; 
+console.log(y5.toString());
+
+const x6 = 6;
+const y6 = 8 + -x6; 
+console.log(y6.toString()); 
+
+const x7 = 6;
+const y7 = 8 + +x7; 
+console.log(y7.toString()); 
+
+const s5 = "5";
+let w5 = Number(s5);
+w5++;
+console.log(w5); 
+
+var a5 = 4; 
+(a5%2==0) ? console.log("Even") : console.log("Odd"); 
+a5++; 
+(a5%10==0) ? console.log("Factor of 10!") : console.log("NOT a factor of 10!"); 
+
+//Unary numbers in multiplication!
+const x9=0, x10=3, x11=-1.5, x12=-6.33; 
+const p1 = -x9*1; //-9
+const p2 = +x10*2; //10
+const p3 = +x11*3; //11
+const p3 = -x12*4; //-25   
