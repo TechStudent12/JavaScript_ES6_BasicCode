@@ -1,1 +1,1 @@
-# JavaScript_ES6_BasicCode
+# Javascript_ES6_BasicCode
